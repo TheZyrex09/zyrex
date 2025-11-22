@@ -16,8 +16,6 @@ body{
     justify-content:center;
     min-height:100vh;
 }
-
-/* Marquee Teks */
 .marquee-container{
     width:100%;
     overflow:hidden;
@@ -37,8 +35,6 @@ body{
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
 }
-
-/* Card */
 .card{
     position:relative;
     z-index:1;
@@ -62,16 +58,12 @@ body{
     opacity:1;
     transform: translateY(0);
 }
-
-/* Judul */
 .card h1{
     font-size:28px;
     color:#ff0000;
     margin-bottom:20px;
     text-shadow:0 0 10px #ff0000, 0 0 20px #ff4500;
 }
-
-/* Input */
 .card input{
     width:100%;
     padding:12px;
@@ -90,8 +82,6 @@ body{
     border-left-color:#ff4500;
     box-shadow: 0 0 12px #ff4500 inset;
 }
-
-/* Button */
 .card button{
     width:100%;
     padding:12px;
@@ -112,8 +102,6 @@ body{
     text-shadow:0 0 10px #ff4500;
     transform:scale(1.05);
 }
-
-/* Music Buttons */
 .music-btn{
     background:#22c55e;
     margin-top:6px;
@@ -121,33 +109,7 @@ body{
 }
 .music-btn:hover{
     background:#16a34a;
-    transform: scale(1.03);
 }
-
-/* Pesan Error */
-#msg{
-    margin-top:10px;
-    color:#ff5555;
-    font-weight:bold;
-    text-shadow:0 0 5px red;
-    font-size:14px;
-}
-
-/* Animasi Dev Text */
-.dev-text{
-    margin-top:12px;
-    font-size:14px;
-    color:#ff6347;
-    text-shadow: 0 0 5px red;
-    animation: fadeGlow 2s infinite alternate;
-}
-@keyframes fadeGlow{
-    0%{ opacity:0.3; text-shadow:0 0 5px red; }
-    50%{ opacity:0.7; text-shadow:0 0 12px red; }
-    100%{ opacity:1; text-shadow:0 0 20px red; }
-}
-
-/* Terminal Page */
 .terminal-page{
     background:#000;
     color:#00ff00;
@@ -162,8 +124,6 @@ body{
     font-size:14px;
     margin-bottom:10px;
 }
-
-/* Sosial Media */
 .socials{
     display:flex;
     justify-content:center;
@@ -187,23 +147,36 @@ body{
 .socials img{
     width:22px; height:22px;
 }
-.socials span{
-    display:block;
-    font-size:10px;
-    color:white;
-    margin-top:2px;
-    text-align:center;
+.features-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:10px;
+}
+.features-grid button{
+    padding:10px;
+    font-size:13px;
+    background:#222;
+    border:1px solid #ff0000;
+}
+.features-grid button:hover{
+    background:#ff0000;
+    color:black;
+}
+.dev-text{
+    margin-top:12px;
+    font-size:14px;
+    color:#ff6347;
+    text-shadow: 0 0 5px red;
 }
 </style>
 </head>
 <body>
 
-<!-- Marquee Teks -->
 <div class="marquee-container">
     <p>WELCOME TO WEBSITE ZYREX DEVELOPER ALL</p>
 </div>
 
-<!-- LOGIN PAGE -->
+<!-- LOGIN -->
 <div class="card active" id="loginBox">
     <h1>LOGIN</h1>
     <input id="user" type="text" placeholder="Username">
@@ -214,70 +187,100 @@ body{
 
 <!-- DASHBOARD -->
 <div class="card" id="dashboard">
-    <h1>Selamat Datang, The Zyrex</h1>
+    <h1>Selamat Datang</h1>
     <button class="music-btn" onclick="playSong(1)" id="btn1">Anugrah Terindah</button>
     <button class="music-btn" onclick="playSong(2)" id="btn2">Monolog</button>
     <button class="music-btn" onclick="playSong(3)" id="btn3">Bergema Selamanya</button>
     <button class="music-btn" onclick="playSong(4)" id="btn4">Serena</button>
-    <button class="music-btn" onclick="playSong(5)" 
-    id="btn5">stadiuin mistake</button>
-    <button class="music-btn" onclick="playSong(5)id="btn6">kesayangan ku</button>
-    <button onclick="goNext()">HALAMAN BERIKUT NYA</button>
-
+    <button class="music-btn" onclick="playSong(5)" id="btn5">Stadium Mistake</button>
+    <button onclick="goNext()">NEXT PAGE</button>
     <div class="socials">
-        <a href="https://www.tiktok.com/@Tlybs12" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg"></a>
-        <a href="https://www.instagram.com/Tlybs12" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"></a>
+        <a href="https://www.tiktok.com/@Tlybs12" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg">
+        </a>
+        <a href="https://www.instagram.com/Tlybs12" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg">
+        </a>
     </div>
 </div>
 
 <!-- NEXT PAGE -->
 <div class="card" id="nextPage">
-    <h1>WELCOME The Zyrex</h1>
+    <h1>WELCOME THE ZYREX</h1>
     <p>Ini halaman lanjutan.</p>
-    <p class="dev-text">ngapain ngejer dia Mulu orang yang menang pasti masalalu nya sadar diri boss
-    #ali</p>
-    <button onclick="goTerminal()">NEXT HALAMAN BERIKUT NYA</button>
-    <button onclick="goDashboard()">KEMBALI KE HALAMAN UTAMA</button>
-</div>
-
-<!-- TERMINAL PAGE -->
-<div class="card" id="terminalPage">
-    <h1>HACK MODE</h1>
-    <div class="terminal-page" id="terminalContent"></div>
+    <p class="dev-text">Dev: Zyrex</p>
+    <button onclick="goTerminal()">NEXT HALAMAN TERMINAL</button>
     <button onclick="goDashboard()">Kembali ke Dashboard</button>
 </div>
 
-<!-- AUDIO FILES -->
+<!-- TERMINAL -->
+<div class="card" id="terminalPage">
+    <h1>TERMINAL MODE</h1>
+    <div class="terminal-page" id="terminalContent"></div>
+    <button onclick="goFeatures()">NEXT KE 15 FITUR</button>
+    <button onclick="showRegister()">Tambah User & Password</button>
+    <button onclick="goDashboard()">Kembali ke Dashboard</button>
+</div>
+
+<!-- REGISTER USER -->
+<div class="card" id="registerPage">
+    <h1>REGISTER USER</h1>
+    <input id="newUser" type="text" placeholder="Username Baru">
+    <input id="newPass" type="password" placeholder="Password Baru">
+    <button onclick="registerUser()">DAFTAR</button>
+    <p id="regMsg"></p>
+    <button onclick="goTerminal()">Kembali ke Terminal</button>
+</div>
+
+<!-- 15 FEATURES PAGE -->
+<div class="card" id="featurePage">
+    <h1>15 FITUR</h1>
+    <div class="features-grid" id="featuresContainer"></div>
+    <div id="featureOutput" style="margin-top:15px; color:#00ff00; font-family:'Courier New', monospace; white-space: pre-wrap; max-height:200px; overflow-y:auto; border:2px solid #00ff00; padding:10px; border-radius:10px;"></div>
+    <button onclick="goDashboard()">Kembali ke Dashboard</button>
+</div>
+
+<!-- AUDIO -->
 <audio id="song1" src="https://files.catbox.moe/y5uao0.mp3"></audio>
-<audio id="song2" src="https://files.catbox.moe/d12rdv.mp3"></audio>
+<audio id="song2" src="https://files.catbox.moe/ur268c.m4a"></audio>
 <audio id="song3" src="https://files.catbox.moe/uujmen.mp3"></audio>
 <audio id="song4" src="https://files.catbox.moe/6aa0dg.mp3"></audio>
 <audio id="song5" src="https://files.catbox.moe/u3sta6.mp3"></audio>
-<audio id="song6" src="https://files.catbox.moe/weq884.mp3"></audio>
 
 <script>
-const username = "TheZyrex";
-const password = "Zyrex";
-
+/* ================= NAVIGATION ================= */
 function show(id){
-    document.getElementById("loginBox").classList.remove("active");
-    document.getElementById("dashboard").classList.remove("active");
-    document.getElementById("nextPage").classList.remove("active");
-    document.getElementById("terminalPage").classList.remove("active");
+    ["loginBox","dashboard","nextPage","terminalPage","featurePage","registerPage"]
+        .forEach(x => document.getElementById(x).classList.remove("active"));
     document.getElementById(id).classList.add("active");
 }
+
+/* ================= USER LOGIN ================= */
+let users = { "TheZyrex":"Zyrex" };
 
 function login(){
     let u = document.getElementById("user").value;
     let p = document.getElementById("pass").value;
-    if(u === username && p === password){
+    if(users[u] && users[u] === p){
         show("dashboard");
     } else {
         document.getElementById("msg").innerText = "Username atau password salah!";
     }
 }
 
-// Musik
+function showRegister(){ show("registerPage"); }
+
+function registerUser(){
+    const u = document.getElementById("newUser").value;
+    const p = document.getElementById("newPass").value;
+    const regMsg = document.getElementById("regMsg");
+    if(!u||!p){ regMsg.innerText="Isi semua field!"; return; }
+    if(users[u]){ regMsg.innerText="Username sudah ada!"; return; }
+    users[u] = p;
+    regMsg.innerText="Berhasil menambahkan user!";
+}
+
+/* ================= MUSIK ================= */
 const songs = [ null,
     document.getElementById("song1"),
     document.getElementById("song2"),
@@ -299,41 +302,33 @@ function playSong(n){
     }
     if(songs[n].paused){
         songs[n].play();
-        buttons[n].innerText = buttons[n].innerText.replace("Play","Pause");
+        buttons[n].innerText = "Pause";
     }
 }
 
-/* ==========================
-   TERMINAL HACKER ANIMATION
-========================== */
+/* ================= TERMINAL ================= */
 const terminalContent = document.getElementById("terminalContent");
 const commands = [
     "[Zyrex@System]$ Initializing hack modules...",
     "[Zyrex@System]$ Loading security bypass scripts...",
     "[Zyrex@System]$ Connecting to remote host...",
     "[Zyrex@System]$ Access granted!",
-    "[Zyrex@System]$ Welcome, TheZyrex...",
+    "[Zyrex@System]$ Welcome...",
     "[Zyrex@System]$ Running system scan...",
     "[Zyrex@System]$ System stable. Awaiting commands..."
 ];
-
-let cmdIndex = 0;
-let charIndex = 0;
-let typingSpeed = 40;
-
+let cmdIndex = 0, charIndex = 0, typingSpeed = 40;
 function typeCommand() {
-    if (cmdIndex >= commands.length) return;
-
+    if(cmdIndex>=commands.length) return;
     const line = document.createElement("p");
     terminalContent.appendChild(line);
-
     function typeChar(){
-        if (charIndex < commands[cmdIndex].length){
+        if(charIndex<commands[cmdIndex].length){
             line.innerText += commands[cmdIndex][charIndex];
             charIndex++;
             setTimeout(typeChar, typingSpeed);
         } else {
-            charIndex = 0;
+            charIndex=0;
             cmdIndex++;
             setTimeout(typeCommand, 500);
         }
@@ -341,16 +336,119 @@ function typeCommand() {
     }
     typeChar();
 }
-
 function goTerminal(){
     show("terminalPage");
-    terminalContent.innerHTML = "";  // reset
-    cmdIndex = 0;
-    charIndex = 0;
+    terminalContent.innerHTML="";
+    cmdIndex=0;
+    charIndex=0;
     typeCommand();
 }
 
-// Navigasi halaman
+/* ================= FEATURES ================= */
+function goFeatures(){ show("featurePage"); }
+
+const fiturList = [
+    "Download Video TikTok","Download Lagu/MP3","Calculator","AI Chatbot","Translate Bahasa",
+    "Cek Cuaca","Text to Speech","Speech to Text","QR Code Generator","URL Shortener",
+    "Random Quotes","Random Anime Pic","Converter File","Base64 Encode/Decode","IP Lookup"
+];
+const grid = document.getElementById("featuresContainer");
+const outputDiv = document.getElementById("featureOutput");
+
+fiturList.forEach((nama,index)=>{
+    let b=document.createElement("button");
+    b.innerText=nama;
+    b.onclick=()=>runFeature(nama);
+    grid.appendChild(b);
+});
+
+async function runFeature(name){
+    outputDiv.innerHTML = "";
+    try{
+        switch(name){
+            case "Download Video TikTok":
+                const tiktokUrl = prompt("Masukkan URL TikTok:");
+                if(!tiktokUrl) return;
+                outputDiv.innerText = `Simulasi download video TikTok dari URL:\n${tiktokUrl}`;
+                break;
+            case "Download Lagu/MP3":
+                const songUrl = prompt("Masukkan URL video untuk download MP3:");
+                if(!songUrl) return;
+                outputDiv.innerText = `Simulasi download MP3 dari URL:\n${songUrl}`;
+                break;
+            case "Calculator":
+                const expr = prompt("Masukkan operasi matematika (contoh: 5+5*2):");
+                if(!expr) return;
+                outputDiv.innerText = `Hasil: ${eval(expr)}`;
+                break;
+            case "AI Chatbot":
+                const question = prompt("Tanya AI Chatbot:");
+                if(!question) return;
+                outputDiv.innerText = `Simulasi jawaban AI untuk pertanyaan:\n${question}\nJawaban: [Simulasi AI]`;
+                break;
+            case "Translate Bahasa":
+                const text = prompt("Masukkan teks untuk diterjemahkan:");
+                if(!text) return;
+                outputDiv.innerText = `Simulasi translate teks:\n${text}\nHasil: [Simulasi Translate]`;
+                break;
+            case "Cek Cuaca":
+                const kota = prompt("Masukkan kota:");
+                if(!kota) return;
+                outputDiv.innerText = `Simulasi cuaca untuk kota ${kota}:\n[Sunny 25°C]`;
+                break;
+            case "Text to Speech":
+                const ttsText = prompt("Masukkan teks TTS:");
+                if(!ttsText) return;
+                outputDiv.innerText = `Simulasi TTS:\n${ttsText}\n[Audio siap dimainkan]`;
+                break;
+            case "Speech to Text":
+                outputDiv.innerText = "Simulasi Speech to Text:\n[Audio diubah menjadi teks]";
+                break;
+            case "QR Code Generator":
+                const qrText = prompt("Masukkan teks/url untuk QR:");
+                if(!qrText) return;
+                outputDiv.innerHTML = `QR Code untuk:\n${qrText}\n<img src="https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(qrText)}" style="margin-top:5px;">`;
+                break;
+            case "URL Shortener":
+                const longUrl = prompt("Masukkan URL panjang:");
+                if(!longUrl) return;
+                outputDiv.innerText = `Simulasi URL Shortener:\n${longUrl} → [short.ly/simulated]`;
+                break;
+            case "Random Quotes":
+                fetch("https://api.quotable.io/random")
+                .then(res=>res.json())
+                .then(data=>outputDiv.innerText=`"${data.content}"\n— ${data.author}`)
+                .catch(err=>outputDiv.innerText=`Error ambil quotes: ${err}`);
+                break;
+            case "Random Anime Pic":
+                fetch("https://api.waifu.pics/sfw/waifu")
+                .then(res=>res.json())
+                .then(data=>outputDiv.innerHTML=`<img src="${data.url}" style="max-width:100%; border-radius:10px;">`)
+                .catch(err=>outputDiv.innerText=`Error ambil gambar anime: ${err}`);
+                break;
+            case "Converter File":
+                outputDiv.innerText = "Simulasi Converter File:\n[File siap dikonversi]";
+                break;
+            case "Base64 Encode/Decode":
+                const input = prompt("Masukkan teks untuk encode/decode:");
+                if(!input) return;
+                const action = prompt("Encode atau Decode? (e/d)");
+                if(action.toLowerCase()=="e") outputDiv.innerText = "Hasil Base64:\n" + btoa(input);
+                else outputDiv.innerText = "Hasil Decode:\n" + atob(input);
+                break;
+            case "IP Lookup":
+                fetch("https://ipapi.co/json/")
+                .then(res=>res.json())
+                .then(data=>outputDiv.innerText = JSON.stringify(data,null,2))
+                .catch(err=>outputDiv.innerText = `Error ambil IP info: ${err}`);
+                break;
+        }
+    }catch(e){
+        outputDiv.innerText = "Terjadi error: " + e.message;
+    }
+}
+
+/* ================= NAVIGATION SHORTCUT ================= */
 function goNext(){ show("nextPage"); }
 function goDashboard(){ show("dashboard"); }
 </script>
